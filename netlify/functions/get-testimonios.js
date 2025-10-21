@@ -5,7 +5,9 @@ const { Pool } = require('pg');
 
 const dialect = new PostgresDialect({
   pool: new Pool({
-    connectionString: process.env.NETLIFY_DB_URL,
+    // 🚨 ESTA LÍNEA ES LA IMPORTANTE 🚨
+    // Asegúrate de que usa 'process.env.NETLIFY_DATABASE_URL'
+    connectionString: process.env.NETLIFY_DATABASE_URL,
   })
 });
 
@@ -15,9 +17,7 @@ const db = new Kysely({
 
 exports.handler = async (event) => {
   try {
-    
-    // TODO: ¡IMPORTANTE! 
-    // Cambia 'testimonios' por el nombre real de tu tabla de testimonios.
+    // Asegúrate de que 'testimonios' es el nombre correcto de tu tabla
     const data = await db.selectFrom('testimonios').selectAll().execute();
 
     return {
