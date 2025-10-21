@@ -1,0 +1,110 @@
+/* Blog.css */
+.cv-blog-section {
+  margin: 50px auto;
+  max-width: 900px;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #0a0a0a;
+}
+
+.cv-blog-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.cv-posts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  min-height: 200px;
+}
+
+.cv-post-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.cv-post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Estilos para la imagen en miniatura */
+.cv-post-thumbnail {
+  width: 100%;
+  height: 180px; 
+  object-fit: contain;
+}
+
+/* Contenedor para el contenido de texto y el botón */
+.cv-post-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+
+.cv-posts-list:has(.no-posts) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv-post-card.no-posts {
+  max-width: 400px;
+  text-align: center;
+  background: #f9f9f9;
+  color: #555;
+  font-style: italic;
+  padding: 20px;
+}
+
+.cv-post-card h3 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.cv-post-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.cv-post-resumen {
+  margin-bottom: 15px;
+  flex-grow: 1; 
+}
+
+.cv-post-link {
+  display: inline-block;
+  background: #007bff;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-top: auto; 
+  align-self: flex-start; 
+}
+
+.cv-post-link:hover {
+  background: #0056b3;
+}
+
+.cv-blog-button-container {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+  .cv-blog-section { padding: 10px; }
+}

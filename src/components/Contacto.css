@@ -1,0 +1,200 @@
+/* Contacto.css */
+
+/* --- VARIABLES Y ESTILOS GLOBALES --- */
+:root {
+  --azul-profundo: #1E3A8A;
+  --naranja-cta: #F97316;
+  --blanco: #FFFFFF;
+  --fondo-claro: #F5F7FA;
+  --borde-suave: #E2E8F0;
+  --texto-gris: #374151;
+}
+
+.contacto-container {
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- TIPOGRAFÍA --- */
+.contacto-container h1 {
+  color: var(--azul-profundo);
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
+  margin-bottom: 20px;
+}
+
+.contacto-container h3 {
+  color: var(--azul-profundo);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--naranja-cta);
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+/* --- DISEÑO DE UNA SOLA COLUMNA --- */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  text-align: left;
+  margin-top: 40px;
+  justify-items: center;
+}
+
+
+.contacto-grid > *:not(.ubicacion) {
+   width: 100%;
+   max-width: 750px; /* El formulario y otros medios siguen limitados */
+}
+
+
+.ubicacion {
+  width: 100%;
+}
+
+
+/* --- FORMULARIO DE CONTACTO --- */
+.formulario-contacto h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: left;
+  color: var(--azul-profundo);
+}
+
+.formulario-contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--borde-suave);
+  background-color: #F9FAFB;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  outline: none;
+  border-color: var(--azul-profundo);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
+}
+
+/* --- BOTONES (Estilo unificado) --- */
+.btn {
+  padding: 14px 30px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn.primario {
+  background-color: var(--azul-profundo);
+  color: var(--blanco);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn.primario:hover {
+  background-color: #1D4ED8;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(30, 58, 138, 0.3);
+}
+
+.notificacion-envio {
+  color: var(--azul-profundo);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* --- OTROS MEDIOS DE CONTACTO --- */
+.info-contacto-adicional {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.medios-contacto .iconos-contacto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.medios-contacto a {
+  background-color: var(--fondo-claro);
+  color: var(--azul-profundo);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--borde-suave);
+}
+
+.medios-contacto a:hover {
+  color: var(--blanco);
+  background-color: var(--naranja-cta);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.medios-contacto i {
+  font-size: 1.4rem;
+}
+
+/* --- SECCIÓN UBICACIÓN Y CTA FINAL --- */
+.ubicacion iframe {
+  border-radius: 12px;
+  border: 1px solid var(--borde-suave);
+  width: 100%;
+}
+
+/* --- CAMBIO 2: Hacer el CTA más Ancho y Destacado --- */
+.cta-final {
+  margin-top: 60px;
+  padding: 50px 20px; /* Aumentamos el padding para darle más aire */
+  border-top: 1px solid var(--borde-suave);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fondo-claro); /* Añadimos un fondo para que se diferencie */
+  border-radius: 12px; /* Redondeamos las esquinas */
+  width: 100%; /* Ocupará todo el ancho del contenedor padre */
+}
+
+.cta-final p {
+  font-size: 1.2rem;
+  color: var(--blanco); /* Corregido para que el texto sea legible sobre el fondo claro */
+  margin-bottom: 25px;
+}
+
+/* --- CLASES DE ACCESIBILIDAD --- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

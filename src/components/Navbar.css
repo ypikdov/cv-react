@@ -1,0 +1,179 @@
+/* Navbar.css */
+
+/* --- Contenedor Principal (AHORA TRANSPARENTE) --- */
+.navbar {
+  width: 100%;
+  padding: 20px 0; /* Mantiene el espaciado superior */
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1000;
+  /* background-color: #F8FAFC; */ /* ELIMINADO */
+  /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */ /* ELIMINADO */
+}
+
+.navbar-container {
+  width: 95%;
+  max-width: 1400px;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F8FAFC;
+  border-radius: 100px;
+  padding: 15px 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Logo --- */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #0d3c74;
+  text-decoration: none;
+  flex-shrink: 0; /* Evita que el logo se encoja */
+}
+
+.navbar-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+/* --- Navegación Principal (Escritorio) --- */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(15px, 2vw, 30px);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: clamp(10px, 1.5vw, 20px);
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: #0d3c74;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 50px;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap; /* Evita que el texto se parta */
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #1F7CEC;
+  color: white;
+}
+
+/* --- Botón de Contacto --- */
+.btn-contacto-nav {
+  background-color: transparent;
+  color: #0d3c74;
+  border: 2px solid #e2e8f0;
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  white-space: nowrap;
+}
+
+.btn-contacto-nav:hover {
+  background-color: #1F7CEC;
+  border-color: #1F7CEC;
+  color: white;
+}
+
+/* --- Botón de Menú Hamburguesa --- */
+.menu-hamburguesa {
+  display: none; /* Oculto en escritorio */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #0d3c74;
+  z-index: 1002;
+}
+
+/* --- Overlay para el fondo oscuro en móvil --- */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* --- Estilos Responsivos (Móvil) --- */
+@media (max-width: 1024px) {
+  .navbar-nav {
+    /* Menú móvil se posiciona relativo al contenedor principal */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 100px 30px 30px;
+    gap: 30px;
+    box-shadow: -4px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1001;
+  }
+  
+  /* Oculta los links y botón en el contenedor principal */
+  .navbar-content .nav-links,
+  .navbar-content .btn-contacto-nav {
+    display: none;
+  }
+
+  .menu-hamburguesa {
+    display: block;
+  }
+  
+  .navbar-nav.abierto {
+    right: 0;
+  }
+  
+  .navbar-nav.abierto + .overlay,
+  .overlay {
+    display: block;
+  }
+
+  /* Estilos para los links DENTRO del menú desplegado */
+  .navbar-nav .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    text-align: left;
+  }
+  
+  .navbar-nav .btn-contacto-nav {
+      display: inline-block; /* Asegura que el botón se muestre dentro del menú */
+      margin-top: 20px;
+  }
+
+  .navbar-nav .nav-links a {
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+  }
+}

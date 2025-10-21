@@ -1,0 +1,12 @@
+# Permitir a todos los bots rastrear el sitio
+User-agent: *
+Allow: /
+
+# Evitar rastreo de archivos innecesarios
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /package.json
+Disallow: /README.md
+
+# Enlace al sitemap
+Sitemap: https://ypikdov.online/sitemap.xml

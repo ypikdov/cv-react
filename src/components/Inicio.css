@@ -1,0 +1,299 @@
+/* Inicio.css */
+
+/* --- Estilos Generales y Banner --- */
+.inicio-container {
+  font-family: var(--fuente-primaria, 'Arial', sans-serif);
+  color: #374151;
+  background: white;
+}
+
+.banner-principal {
+  background: url("../images/banner.webp") center/cover no-repeat;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 0 20px; 
+}
+
+.banner-principal::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(30, 58, 138, 0.4);
+  border-radius: 25px;
+}
+
+.banner-overlay {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.banner-overlay h1 {
+  color: white;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+
+.banner-overlay .subtitle {
+  color: white;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  margin-bottom: 30px;
+}
+
+.banner-cta {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* --- Botones Genéricos --- */
+.cta-button {
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-flex; 
+  align-items: center;
+  gap: 10px; 
+}
+.cta-button.primary {
+  background: var(--primario);
+  color: white;
+}
+.cta-button.primary:hover, .cta-button.secondary:hover {
+  background: var(--naranja);
+  border-color: #F97316;
+  color: white;
+  transform: translateY(-3px);
+}
+.cta-button.secondary {
+  background: var(--primario);
+  color: white;
+  border-color: var(--primario);
+}
+ 
+/* --- Secciones y Títulos --- */
+.servicios, .proyectos-recientes, .cta-final, .presentacion {
+  padding: 80px 20px;
+}
+
+.servicios h2, .proyectos-recientes h2, .cta-final h2, .presentacion h2 {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: #1E3A8A;
+  margin-bottom: 50px;
+}
+
+.presentacion {
+  padding: 100px 20px;
+  text-align: center;
+  background: url("../images/cvimg.webp") center/cover no-repeat fixed;
+  border-radius: 25px;
+  margin: 80px 20px;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+.presentacion::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(30, 58, 138, 0.5);
+  z-index: 1;
+}
+.presentacion > * {
+  position: relative;
+  z-index: 2; 
+}
+.presentacion h2 {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+.resumen-perfil {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: -20px auto 30px;
+}
+.cta-buttons-presentacion {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.cta-buttons-presentacion .primary, .cta-buttons-presentacion .secondary {
+  background: var(--primario) ;
+  color: white;
+  border-color: var(--primario);
+}
+
+.primary:hover, .secondary:hover {
+  background: white;
+  color: #1E3A8A;
+}
+
+/* --- Grid y Estilos de Tarjetas 3D --- */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+.card {
+  position: relative;
+  border-radius: 15px;
+  width: 300px;
+  min-height: 250px;
+  transition: all 0.5s ease;
+  perspective: 1000px;
+  cursor: pointer;
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: calc(0.1s * var(--i));
+  opacity: 0; 
+}
+.card-front, .card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+  text-align: center;
+}
+.card-front {
+  background: linear-gradient(135deg, #F5F7FA 0%, #E3E8F0 100%);
+  border: 2px solid transparent;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.card-back {
+  background: linear-gradient(135deg, #1E3A8A 0%, #2D4FA8 100%);
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+.card:hover .card-front { transform: rotateY(180deg); }
+.card:hover .card-back { transform: rotateY(0deg); }
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(30, 58, 138, 0.2);
+}
+
+/* --- Contenido de las Tarjetas --- */
+.card .icono {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #1E3A8A;
+}
+.card h3 {
+  color: #1E3A8A;
+  font-size: 1.3rem;
+  margin: 0;
+}
+.card-back p {
+  color: white;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+.proyecto-imagen {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.cta-button-card {
+  background: white;
+  color: #1E3A8A;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+.cta-button-card:hover {
+  background: #f0f0f0;
+}
+
+/* --- CTA Final y Ver más --- */
+.cta-final {
+  text-align: center;
+  background: url("../images/pc.webp") center/cover no-repeat;
+  border-radius: 25px;
+  position: relative;
+  padding: 100px 20px;
+  margin: 0 20px; 
+  overflow: hidden; 
+}
+
+.cta-final::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(10, 25, 47, 0.5);
+  z-index: 1; 
+}
+
+.cta-final > * {
+  position: relative;
+  z-index: 2;
+}
+.cta-final h2 {
+  color: white;
+}
+
+.ver-mas-cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* --- Animación de Entrada --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .banner-principal { min-height: 70vh; margin: 0 15px; }
+  .servicios, .proyectos-recientes, .cta-final, .presentacion {
+    padding: 60px 15px;
+    margin: 60px 15px;
+  }
+}
+
+/* --- CTA Final y Ver más --- */
+.cta-final {
+  position: relative; 
+  width: auto !important;
+}
+.cta-final::before {
+  content: '';
+  position: absolute; 
+}
+
+.cta-final > * {
+  position: relative;
+  z-index: 2;
+}

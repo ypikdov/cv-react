@@ -1,0 +1,9 @@
+[build]
+  # El comando para construir tu app de React (puede ser 'npm run build', 'yarn build', etc.)
+  command = "npm run build"
+  
+  # La carpeta donde React guarda los archivos construidos (usualmente 'build' o 'dist')
+  publish = "build"
+  
+  # La carpeta donde Netlify encontrará tus funciones 
+  functions = "netlify/functions"
